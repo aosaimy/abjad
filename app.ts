@@ -72,7 +72,7 @@ const abjadMapping: { [letter: string]: number } = {
    * This is a naive backtracking approach. For every candidate that reaches the target sum,
    * the candidate is sent to the API endpoint for validation.
    */
-  async function findValidWordsForNumber(target: number, maxWordLength: number = 3): Promise<string[]> {
+  async function findValidWordsForNumber(target: number, maxWordLength: number = 4): Promise<string[]> {
     const validWords: string[] = [];
   
     // Recursive helper function.

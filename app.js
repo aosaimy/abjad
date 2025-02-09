@@ -70,7 +70,7 @@ function calculateAbjad(text) {
  * This is a naive backtracking approach. For every candidate that reaches the target sum,
  * the candidate is sent to the API endpoint for validation.
  */
-async function findValidWordsForNumber(target, maxWordLength = 3) {
+async function findValidWordsForNumber(target, maxWordLength = 4) {
     const validWords = [];
     // Recursive helper function.
     async function search(currentWord, currentSum) {
