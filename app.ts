@@ -127,9 +127,9 @@ const abjadMapping: { [letter: string]: number } = {
       wordResultDiv.textContent = "Searching for valid words...";
       const validWords = await findValidWordsForNumber(targetNumber, 3);
       if (validWords.length > 0) {
-        wordResultDiv.textContent = `Found valid word(s): ${validWords.join(", ")}`;
+        wordResultDiv.textContent = `قائمة الكلمات الممكنة: ${validWords.join(", ")}`;
       } else {
-        wordResultDiv.textContent = "No valid word found.";
+        wordResultDiv.textContent = "لا توجد أي كلمة صحيحة.";
       }
     });
   });
@@ -217,6 +217,8 @@ function validateWord(word: string): boolean {
         "بدا",
         "وجد",
         "نظر",
+        "أب",
+        "أ",
         "سأل",
         "أخذ",
         "عند",
