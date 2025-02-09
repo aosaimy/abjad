@@ -110,7 +110,7 @@ const abjadMapping: { [letter: string]: number } = {
     calculateAbjadBtn.addEventListener("click", () => {
       const text = arabicTextInput.value;
       const sum = calculateAbjad(text);
-      abjadResultDiv.textContent = `Abjad numeral value: ${sum}`;
+      abjadResultDiv.textContent = `حساب الجمل: ${sum}`;
     });
   
     // Section 2: Given a number, find valid Arabic word(s) whose Abjad sum equals that number.
