@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abjad Numerals Calculator</title>
+  <style>
+    /* Simple CSS styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .result {
+      background: #e0e0e0;
+      padding: 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Abjad Numerals Calculator</h2>
+
+    <!-- Section 1: Calculate Abjad numeral value of Arabic text -->
+    <div class="section" id="abjad-section">
+      <h3>Calculate Abjad Value</h3>
+      <label for="arabicText">Enter Arabic text:</label>
+      <input type="text" id="arabicText" placeholder="اكتب النص هنا" />
+      <button id="calculateAbjadBtn">Calculate Abjad Value</button>
+      <div class="result" id="abjadResult"></div>
+    </div>
+
+    <!-- Section 2: Find valid Arabic word(s) for a given number -->
+    <div class="section" id="word-generator-section">
+      <h3>Find Word for Number</h3>
+      <label for="targetNumber">Enter a number:</label>
+      <input type="number" id="targetNumber" placeholder="Enter number" />
+      <button id="findWordBtn">Find Valid Word(s)</button>
+      <div class="result" id="wordResult"></div>
+    </div>
+  </div>
+
+  <!-- Include the compiled JavaScript (see below for the TypeScript code) -->
+  <script src="app.js"></script>
+</body>
+</html>
