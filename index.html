@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abjad Numerals Calculator</title>
+  <title>حاسبة الأرقام الأبجدية</title>
   <style>
-    /* Simple CSS styling */
+    /* تنسيق CSS بسيط */
     body {
       font-family: Arial, sans-serif;
       background: #f0f0f0;
       padding: 20px;
+      direction: rtl;
+      text-align: right;
     }
     .container {
       max-width: 600px;
@@ -43,28 +45,28 @@
 </head>
 <body>
   <div class="container">
-    <h2>Abjad Numerals Calculator</h2>
+    <h2>حاسبة الأرقام الأبجدية</h2>
 
-    <!-- Section 1: Calculate Abjad numeral value of Arabic text -->
+    <!-- القسم الأول: حساب قيمة الأبجد للنص العربي -->
     <div class="section" id="abjad-section">
-      <h3>Calculate Abjad Value</h3>
-      <label for="arabicText">Enter Arabic text:</label>
+      <h3>حساب القيمة الأبجدية</h3>
+      <label for="arabicText">أدخل النص العربي:</label>
       <input type="text" id="arabicText" placeholder="اكتب النص هنا" />
-      <button id="calculateAbjadBtn">Calculate Abjad Value</button>
+      <button id="calculateAbjadBtn">احسب القيمة الأبجدية</button>
       <div class="result" id="abjadResult"></div>
     </div>
 
-    <!-- Section 2: Find valid Arabic word(s) for a given number -->
+    <!-- القسم الثاني: إيجاد كلمات عربية متوافقة مع رقم معين -->
     <div class="section" id="word-generator-section">
-      <h3>Find Word for Number</h3>
-      <label for="targetNumber">Enter a number:</label>
-      <input type="number" id="targetNumber" placeholder="Enter number" />
-      <button id="findWordBtn">Find Valid Word(s)</button>
+      <h3>إيجاد كلمة لرقم معين</h3>
+      <label for="targetNumber">أدخل رقماً:</label>
+      <input type="number" id="targetNumber" placeholder="أدخل الرقم" />
+      <button id="findWordBtn">إيجاد كلمة مناسبة</button>
       <div class="result" id="wordResult"></div>
     </div>
   </div>
 
-  <!-- Include the compiled JavaScript (see below for the TypeScript code) -->
+  <!-- تضمين ملف JavaScript (راجع كود TypeScript أدناه) -->
   <script src="app.js"></script>
 </body>
 </html>
