@@ -18964,6 +18964,7 @@ function validateWord(word: string): boolean {
 "قند",
 "كاجو",
 "بص",
+"أب",
 "لُؤلؤ",
 "فنى",
 "بقى",
