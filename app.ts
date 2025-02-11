@@ -125,7 +125,7 @@ const abjadMapping: { [letter: string]: number } = {
         return;
       }
       wordResultDiv.textContent = "Searching for valid words...";
-      const validWords = await findValidWordsForNumber(targetNumber, 3);
+      const validWords = await findValidWordsForNumber(targetNumber, 4);
       if (validWords.length > 0) {
         wordResultDiv.textContent = `قائمة الكلمات الممكنة: ${validWords.join(", ")}`;
       } else {
