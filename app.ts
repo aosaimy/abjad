@@ -99,6 +99,15 @@ const abjadMapping: { [letter: string]: number } = {
     await search("", 0);
     return validWords;
   }
+  const debounce = (callback: any, wait: any) => {
+    let timeoutId: any = null;
+    return (...args: any[]) => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback(...args);
+      }, wait);
+    };
+  }
   
   /* ----- UI Event Handlers ----- */
   document.addEventListener("DOMContentLoaded", () => {
@@ -118,20 +127,23 @@ const abjadMapping: { [letter: string]: number } = {
     const findWordBtn = document.getElementById("findWordBtn") as HTMLButtonElement;
     const wordResultDiv = document.getElementById("wordResult") as HTMLDivElement;
   
-    findWordBtn.addEventListener("click", async () => {
+    const onFind = async () => {
       const targetNumber = parseInt(targetNumberInput.value);
       if (isNaN(targetNumber) || targetNumber <= 0) {
         wordResultDiv.textContent = "Please enter a valid positive number.";
         return;
       }
-      wordResultDiv.textContent = "Searching for valid words...";
+      wordResultDiv.textContent = "جاري البحث عن كلمات مناسبة...";
       const validWords = await findValidWordsForNumber(targetNumber, 4);
       if (validWords.length > 0) {
         wordResultDiv.textContent = `قائمة الكلمات الممكنة: ${validWords.join(", ")}`;
       } else {
         wordResultDiv.textContent = "لا توجد أي كلمة صحيحة.";
       }
-    });
+    };
+    findWordBtn.addEventListener("click", onFind);
+    targetNumberInput.addEventListener("blur", onFind);
+    targetNumberInput.addEventListener("input", debounce(onFind, 1000));
   });
   
   /**

@@ -95,6 +95,15 @@ async function findValidWordsForNumber(target, maxWordLength = 4) {
     await search("", 0);
     return validWords;
 }
+const debounce = (callback, wait) => {
+    let timeoutId = null;
+    return (...args) => {
+        window.clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(() => {
+            callback(...args);
+        }, wait);
+    };
+};
 /* ----- UI Event Handlers ----- */
 document.addEventListener("DOMContentLoaded", () => {
     // Section 1: Calculate Abjad numeral for a given Arabic text.
@@ -110,13 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetNumberInput = document.getElementById("targetNumber");
     const findWordBtn = document.getElementById("findWordBtn");
     const wordResultDiv = document.getElementById("wordResult");
-    findWordBtn.addEventListener("click", async () => {
+    const onFind = async () => {
         const targetNumber = parseInt(targetNumberInput.value);
         if (isNaN(targetNumber) || targetNumber <= 0) {
             wordResultDiv.textContent = "Please enter a valid positive number.";
             return;
         }
-        wordResultDiv.textContent = "Searching for valid words...";
+        wordResultDiv.textContent = "جاري البحث عن كلمات مناسبة...";
         const validWords = await findValidWordsForNumber(targetNumber, 4);
         if (validWords.length > 0) {
             wordResultDiv.textContent = `قائمة الكلمات الممكنة: ${validWords.join(", ")}`;
@@ -124,7 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             wordResultDiv.textContent = "لا توجد أي كلمة صحيحة.";
         }
-    });
+    };
+    findWordBtn.addEventListener("click", onFind);
+    targetNumberInput.addEventListener("blur", onFind);
+    targetNumberInput.addEventListener("input", debounce(onFind, 1000));
 });
 /**
 * Validates an Arabic word of maximum 4 letters.
